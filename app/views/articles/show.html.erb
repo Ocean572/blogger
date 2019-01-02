@@ -4,7 +4,19 @@
 
 <p>
   <%= @article.body %>
-</p><br><br>
+</p><br>
+
+<p>
+  Tags:
+  <% @article.tags.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag) %>
+  <% end %>
+</p>
+<p>
+  <%= image_tag @article.image.url %>
+</p>
+
+<br><br>
 
 <%= link_to "delete", article_path(@article), method: :delete, data: {confirm: "Do you really want to delete the article?"}, style: "position: absolute; bottom: 0;" %>
 
